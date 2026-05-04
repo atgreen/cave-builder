@@ -1,0 +1,43 @@
+name: Build and publish builder images
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  fedora:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      matrix:
+        include:
+          - fedora_version: "43"
+            latest: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: fedora
+          file: fedora/Containerfile
+          build-args: |
+            FEDORA_VERSION=${{ matrix.fedora_version }}
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/atgreen/fedora-cave-builder:${{ matrix.fedora_version }}
+            ${{ matrix.latest && format('{0}/atgreen/fedora-cave-builder:latest', env.REGISTRY) || '' }}
