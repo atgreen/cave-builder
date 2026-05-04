@@ -1,6 +1,6 @@
 # cave-builder
 
-Builder images for [Cave](https://github.com/atgreen/cave), a self-hosted code forge.
+Builder container images.
 
 ## Images
 

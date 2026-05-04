@@ -23,4 +23,4 @@ RUN curl -L https://github.com/ocicl/ocicl/releases/latest/download/ocicl-linux-
     && ocicl version
 
 LABEL org.opencontainers.image.source="https://github.com/atgreen/cave-builder"
-LABEL org.opencontainers.image.description="Fedora-based builder image for Cave"
+LABEL org.opencontainers.image.description="Fedora-based builder image"
