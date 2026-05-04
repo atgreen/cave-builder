@@ -6,7 +6,7 @@ Builder container images.
 
 | Image | Base | Tags |
 |-------|------|------|
-| `ghcr.io/atgreen/fedora-cave-builder` | Fedora | `43`, `latest` |
+| `ghcr.io/atgreen/fedora-cave-builder` | Fedora | `43`, `44`, `latest` |
 
 ## What's included
 

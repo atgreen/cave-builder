@@ -19,6 +19,8 @@ jobs:
       matrix:
         include:
           - fedora_version: "43"
+            latest: false
+          - fedora_version: "44"
             latest: true
 
     steps:
