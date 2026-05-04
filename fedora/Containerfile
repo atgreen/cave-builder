@@ -20,5 +20,7 @@ RUN dnf install -y \
         zlib-devel \
     && dnf clean all
 
+RUN ocicl setup > ~/.sbclrc
+
 LABEL org.opencontainers.image.source="https://github.com/atgreen/cave-builder"
 LABEL org.opencontainers.image.description="Fedora-based builder image"
